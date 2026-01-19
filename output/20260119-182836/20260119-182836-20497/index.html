@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Archive Launcher 20497</title>
+</head>
+<body>
+    <p>This page is for Internet Archive.</p>
+    <script>
+        const urlsToArchive = [
+            "https://pokemonbbs.com/post/read.cgi?no=2015234&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015239&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015157&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015261&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=1964993&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2007091&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015177&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015243&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015189&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015249&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015255&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015256&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015215&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015235&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015228&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015242&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2014720&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015137&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015241&l=1-",
+            "https://pokemonbbs.com/post/read.cgi?no=2015244&l=1-"
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('run') === 'true') {
+            document.body.innerHTML = '';
+            urlsToArchive.forEach(url => {
+                fetch(url, { mode: 'no-cors' })
+                    .then(() => console.log(`Requested: ${url}`))
+                    .catch(err => console.error(`Failed: ${url}`, err));
+            });
+        } else {
+            document.body.innerHTML += '<p style="color: green;">Safe mode. No requests were sent.</p>';
+        }
+    </script>
+</body>
+</html>
